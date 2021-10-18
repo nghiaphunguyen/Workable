@@ -22,7 +22,7 @@ public class PublishWorker<Params, Output, WorkerError: Error>: PublishWorkable 
 }
 
 extension PublishWorker {
-    static func just(_ output: Output) -> Self {
+    public static func just(_ output: Output) -> Self {
         self.init { _ in
             Future { promise in
                 promise(Result.success(output))
@@ -30,7 +30,7 @@ extension PublishWorker {
         }
     }
 
-    static func error(_ error: WorkerError) -> Self {
+    public static func error(_ error: WorkerError) -> Self {
         self.init { _ in
             Future { promise in
                 promise(Result.failure(error))

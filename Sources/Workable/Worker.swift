@@ -20,7 +20,7 @@ public class Worker<Params, Output>: Workable {
 }
 
 extension Worker {
-    static func just(_ output: Output) -> Self {
+    public static func just(_ output: Output) -> Self {
         self.init { _ in
             output
         }
